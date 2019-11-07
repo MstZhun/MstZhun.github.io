@@ -11,7 +11,7 @@
 
     <title>
         
-        廖启准的博客 | Qizhun Liao&#39;s Blog
+        CentOS安装node8.x版本 - 廖启准的博客 | Qizhun Liao&#39;s Blog
         
     </title>
 
@@ -53,7 +53,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-安装-node-8-x-版本"><span class="toc-text">CentOS 安装 node 8.x 版本</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -112,189 +116,79 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 576px">
-    
-    <div class="post-preview">
-        <div class="post-time">2019-07-06</div>
-        <div class="post-info">
-            <a href="/2019/07/06/深入Vue源代码解决时序问题一/">
-                <h3>
-                    深入Vue源代码解决时序问题一
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Vue" title="Vue">Vue</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#viola" title="viola">viola</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        CentOS安装node8.x版本
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-06-16</div>
-        <div class="post-info">
-            <a href="/2019/06/16/web应用开发与部署——你必须掌握的内容/">
-                <h3>
-                    web应用开发与部署——你必须掌握的内容
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#前端构建" title="前端构建">前端构建</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2017-12-15 12:52:34</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Node.js" title="Node.js">Node.js</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#centOS" title="centOS">centOS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-02-16</div>
-        <div class="post-info">
-            <a href="/2019/02/16/qlc解决了什么问题/">
-                <h3>
-                    qlc解决了什么问题
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+    <div class="post-content ">
+        <h3 id="CentOS-安装-node-8-x-版本"><a href="#CentOS-安装-node-8-x-版本" class="headerlink" title="CentOS 安装 node 8.x 版本"></a>CentOS 安装 node 8.x 版本</h3><p>由于一些原因需要给CentOS服务器安装8.0以上版本的node, 本来直接通过yum管理安装管理，但是没找到好办法，在此记录一下自己最后使用的简单过程：</p>
+<p>安装之前删除原来的node和npm (我原来是用yum安装的，如果是第一次安装可以省略这一步):</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="builtin-name">remove</span> nodejs npm -y</span><br></pre></td></tr></table></figure>
+
+<p>首先我们随便进入服务器的一个目录，然后从淘宝的源拉取内容:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://npm.taobao.org/mirrors/<span class="keyword">node</span><span class="title">/v8</span>.<span class="number">0.0</span>/<span class="keyword">node</span><span class="title">-v8</span>.<span class="number">0.0</span>-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+
+<p>解压缩:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -xvf <span class="keyword">node</span><span class="title">-v8</span>.<span class="number">0.0</span>-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+
+<p>进入解压目录下的 bin 目录，执行 ls 命令</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="keyword">node</span><span class="title">-v8</span>.<span class="number">0.0</span>-linux-x64/bin &amp;&amp; ls</span><br></pre></td></tr></table></figure>
+
+<p>我们发现有node 和 npm</p>
+<p>这个时候我们测试:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br></pre></td></tr></table></figure>
+
+<p>这个时候我们发现实际上已经安装好了，接下来就是要建立链接文件。</p>
+<p>这里还是，如果我们之前已经安装过了，那么我们要先删除之前建立的链接文件：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/bin/<span class="keyword">node</span><span class="title"></span></span><br><span class="line"><span class="title">sudo</span> rm -rf /usr/bin/npm</span><br></pre></td></tr></table></figure>
+
+<p>然后建立链接文件:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/share/<span class="keyword">node</span><span class="title">-v8</span>.<span class="number">0.0</span>-linux-x64/bin/<span class="keyword">node</span> <span class="title">/usr</span>/bin/<span class="keyword">node</span><span class="title"></span></span><br><span class="line"><span class="title">sudo</span> ln -s /usr/share/<span class="keyword">node</span><span class="title">-v8</span>.<span class="number">0.0</span>-linux-x64/bin/npm /usr/bin/npm</span><br></pre></td></tr></table></figure>
+
+<p>注意这里的第一个路径不要直接复制粘贴，要写当前文件的真正的路径，这个可以通过pwd获取。</p>
+<p>然后我们可以通过<code>node -v</code>等测试已经安装成功。</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-02-16</div>
-        <div class="post-info">
-            <a href="/2019/02/16/入门WebAssembly以及使用其进行图像卷积处理/">
-                <h3>
-                    入门WebAssembly以及使用其进行图像卷积处理
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#WebAssembly" title="WebAssembly">WebAssembly</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-12-04</div>
-        <div class="post-info">
-            <a href="/2018/12/04/web跨端融合方案浅析/">
-                <h3>
-                    web跨端融合方案浅析
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#跨端融合" title="跨端融合">跨端融合</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-11-25</div>
-        <div class="post-info">
-            <a href="/2018/11/25/Node-js的TCP链接管理/">
-                <h3>
-                    Node.js 的 TCP 链接管理
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Node.js" title="Node.js">Node.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TCP" title="TCP">TCP</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-11-10</div>
-        <div class="post-info">
-            <a href="/2018/11/10/多组件单页列表应用的代码组织实践/">
-                <h3>
-                    多组件单页列表应用的代码组织实践
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#组件化" title="组件化">组件化</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-21</div>
-        <div class="post-info">
-            <a href="/2018/10/21/使用 Node.js 打造多用户实时监控系统/">
-                <h3>
-                    使用 Node.js 打造多用户实时监控系统
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Node.js" title="Node.js">Node.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Rx.js" title="Rx.js">Rx.js</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
 </div>
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -396,12 +290,31 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
 
 
 

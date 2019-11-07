@@ -11,7 +11,7 @@
 
     <title>
         
-        廖启准的博客 | Qizhun Liao&#39;s Blog
+        腾讯云北美服务器搭建ShadowSocks代理 - 廖启准的博客 | Qizhun Liao&#39;s Blog
         
     </title>
 
@@ -53,7 +53,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -112,189 +116,74 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 576px">
-    
-    <div class="post-preview">
-        <div class="post-time">2019-07-06</div>
-        <div class="post-info">
-            <a href="/2019/07/06/深入Vue源代码解决时序问题一/">
-                <h3>
-                    深入Vue源代码解决时序问题一
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Vue" title="Vue">Vue</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#viola" title="viola">viola</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        腾讯云北美服务器搭建ShadowSocks代理
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-06-16</div>
-        <div class="post-info">
-            <a href="/2019/06/16/web应用开发与部署——你必须掌握的内容/">
-                <h3>
-                    web应用开发与部署——你必须掌握的内容
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#前端构建" title="前端构建">前端构建</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2016-08-08 19:15:01</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#ShadowSocks" title="ShadowSocks">ShadowSocks</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-02-16</div>
-        <div class="post-info">
-            <a href="/2019/02/16/qlc解决了什么问题/">
-                <h3>
-                    qlc解决了什么问题
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+    <div class="post-content ">
+        <p>注：本教程适合centos系列和red hat系列</p>
+<p>登陆SSH<br>新的VPS可以先升级</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum -y update</span></span><br></pre></td></tr></table></figure>
+
+<p>有些VPS 没有wget<br>这种要先装</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure>
+
+<p>输入以下命令：（可以复制）</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --<span class="keyword">no</span>-check-certificate http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/teddysun/shadowsocks_install/master/shadowsocks.<span class="keyword">sh</span></span><br><span class="line">chmod +<span class="keyword">x</span> shadowsocks.<span class="keyword">sh</span></span><br><span class="line">./shadowsocks.<span class="keyword">sh</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> | tee shadowsocks.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<p>第一行是下载命令，下载东西，第二行是修改权限，第三行是安装命令</p>
+<p>下面是按照配置图</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">配置：</span><br><span class="line">密码：（默认是teddysun.com）</span><br><span class="line">端口：默认是<span class="number">8989</span></span><br><span class="line">然后按任意键安装，退出按 Ctrl+c</span><br></pre></td></tr></table></figure>
+
+<p>安装完成会有一个配置</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Congratulations, shadowsocks install completed!Your Server IP:  ***** VPS的IP地址Your Server Port:  *****  你刚才设置的端口Your Password:  ****  你刚才设置的密码Your Local IP:  <span class="number">127.0</span>.<span class="number">0.1</span> Your Local Port:  <span class="number">1080</span> Your Encryption <span class="function"><span class="keyword">Method</span>:</span>  aes-<span class="number">256</span>-cfb Welcome <span class="keyword">to</span> visit:https:<span class="comment">//teddysun.com/342.htmlEnjoy it!</span></span><br></pre></td></tr></table></figure>
+
+<p>然后即可以使用</p>
+<p>卸载方法：</p>
+<p>使用 root 用户登录，运行以下命令：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./shadowsocksR.sh</span> uninstall</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后即已后台启动 ShadowsocksR ，运行：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d<span class="regexp">/shadowsocks status</span></span><br></pre></td></tr></table></figure>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-02-16</div>
-        <div class="post-info">
-            <a href="/2019/02/16/入门WebAssembly以及使用其进行图像卷积处理/">
-                <h3>
-                    入门WebAssembly以及使用其进行图像卷积处理
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#WebAssembly" title="WebAssembly">WebAssembly</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-12-04</div>
-        <div class="post-info">
-            <a href="/2018/12/04/web跨端融合方案浅析/">
-                <h3>
-                    web跨端融合方案浅析
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#跨端融合" title="跨端融合">跨端融合</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-11-25</div>
-        <div class="post-info">
-            <a href="/2018/11/25/Node-js的TCP链接管理/">
-                <h3>
-                    Node.js 的 TCP 链接管理
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Node.js" title="Node.js">Node.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TCP" title="TCP">TCP</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-11-10</div>
-        <div class="post-info">
-            <a href="/2018/11/10/多组件单页列表应用的代码组织实践/">
-                <h3>
-                    多组件单页列表应用的代码组织实践
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#组件化" title="组件化">组件化</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-21</div>
-        <div class="post-info">
-            <a href="/2018/10/21/使用 Node.js 打造多用户实时监控系统/">
-                <h3>
-                    使用 Node.js 打造多用户实时监控系统
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Node.js" title="Node.js">Node.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Rx.js" title="Rx.js">Rx.js</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
 </div>
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -396,12 +285,31 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
 
 
 
