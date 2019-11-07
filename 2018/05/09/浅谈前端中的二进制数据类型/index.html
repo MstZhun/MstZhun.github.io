@@ -35,7 +35,7 @@
 </div>
 
 <div class="index-about">
-    <i> Love life, Love front end </i>
+    <i> Love life, Love code </i>
 </div>
 
 <div class="index-container">
@@ -109,7 +109,7 @@
 </div>
 
         <div class="index-about-mobile">
-            <i> Love life, Love front end </i>
+            <i> Love life, Love code </i>
         </div>
     </div>
     
@@ -141,7 +141,7 @@
         <blockquote>
 <p>目前在一个项目中，WebSocket部分由于后端使用了gzip压缩，前端处理起来废了一点时间，从而发现自己在二进制数据类型这个知识点还存在一定的盲区，因此这里进行总结。</p>
 </blockquote>
-<p>本文主要简单介绍ArrayBuffer对象、TypedArray对象、DataView对象以及Blob原始数据类型，和它们之间的互相转换方法。部分代码参考<a href="http://javascript.ruanyifeng.com/stdlib/arraybuffer.html#toc4" target="_blank" rel="noopener">这里</a>而非本人原创，仅做个人学习使用。</p>
+<p>本文主要简单介绍ArrayBuffer对象、TypedArray对象、DataView对象以及Blob原始数据类型，和它们之间的互相转换方法。部分代码参考<a href="http://javascript.ruanyifeng.com/stdlib/arraybuffer.html#toc4">这里</a>而非本人原创，仅做个人学习使用。</p>
 <p>这些类型化对象，一般会在以下场景中使用：</p>
 <ul>
 <li>WebGL 中，浏览器和显卡之间需要使用二进制数据进行通信。</li>
@@ -329,7 +329,7 @@
 <p>从Blob中读取内容的唯一方法是使用 FileReader。以下代码将 Blob 的内容作为类型数组读取：</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var reader = <span class="keyword">new</span> <span class="constructor">FileReader()</span>;</span><br><span class="line">reader.add<span class="constructor">EventListener(<span class="string">"loadend"</span>, <span class="params">function</span>()</span> &#123;</span><br><span class="line">   <span class="comment">// reader.result 包含转化为类型数组的blob</span></span><br><span class="line">&#125;);</span><br><span class="line">reader.read<span class="constructor">AsArrayBuffer(<span class="params">blob</span>)</span>;</span><br></pre></td></tr></table></figure>
 
-<p>更多关于Blob的内容，请直接查看<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="noopener">这里</a></p>
+<p>更多关于Blob的内容，请直接查看<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob">这里</a></p>
 <h3 id="数据格式转换"><a href="#数据格式转换" class="headerlink" title="数据格式转换"></a>数据格式转换</h3><h4 id="String转Blob"><a href="#String转Blob" class="headerlink" title="String转Blob"></a>String转Blob</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将字符串 转换成 Blob 对象</span></span><br><span class="line"><span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([<span class="string">"Hello World!"</span>], &#123;</span><br><span class="line">    <span class="keyword">type</span>: <span class="string">'text/plain'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.info(blob);</span><br><span class="line"><span class="built_in">console</span>.info(blob.slice(<span class="number">1</span>, <span class="number">3</span>, <span class="string">'text/plain'</span>));</span><br></pre></td></tr></table></figure>
 <h4 id="TypeArray转Blob"><a href="#TypeArray转Blob" class="headerlink" title="TypeArray转Blob"></a>TypeArray转Blob</h4><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将 TypeArray  转换成 Blob 对象</span></span><br><span class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="type">Uint16Array</span>([<span class="number">97</span>, <span class="number">32</span>, <span class="number">72</span>, <span class="number">101</span>, <span class="number">108</span>, <span class="number">108</span>, <span class="number">111</span>, <span class="number">32</span>, <span class="number">119</span>, <span class="number">111</span>, <span class="number">114</span>, <span class="number">108</span>, <span class="number">100</span>, <span class="number">33</span>]);</span><br><span class="line"><span class="comment">//测试成功</span></span><br><span class="line"><span class="comment">//var blob = new Blob([array], &#123; type: "application/octet-binary" &#125;);</span></span><br><span class="line"><span class="comment">//测试成功， 注意必须[]的包裹</span></span><br><span class="line"><span class="keyword">var</span> blob = <span class="keyword">new</span> <span class="type">Blob</span>([array]);</span><br><span class="line"><span class="comment">//将 Blob对象 读成字符串</span></span><br><span class="line"><span class="keyword">var</span> reader = <span class="keyword">new</span> <span class="type">FileReader</span>();</span><br><span class="line">reader.readAsText(blob, <span class="string">'utf-8'</span>);</span><br><span class="line">reader.onload = <span class="function"><span class="keyword">function</span> </span>(e) &#123;</span><br><span class="line">    console.info(reader.result); <span class="comment">//a Hello world!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -432,15 +432,6 @@
     </ul>
     
     <p>
-        <span>/</span>
-        
-        <span><a href="https://www.10000h.top">10000H</a></span>
-        <span>/</span>
-        
-        <span><a href="https://niexiaotao.com">Xiaotao&#39;s Page</a></span>
-        <span>/</span>
-        
-        <span><a href="#">It helps SEO</a></span>
         <span>/</span>
         
     </p>

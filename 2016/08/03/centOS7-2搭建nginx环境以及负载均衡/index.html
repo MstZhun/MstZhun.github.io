@@ -35,7 +35,7 @@
 </div>
 
 <div class="index-about">
-    <i> Love life, Love front end </i>
+    <i> Love life, Love code </i>
 </div>
 
 <div class="index-container">
@@ -109,7 +109,7 @@
 </div>
 
         <div class="index-about-mobile">
-            <i> Love life, Love front end </i>
+            <i> Love life, Love code </i>
         </div>
     </div>
     
@@ -198,7 +198,7 @@
 <p>nginx 停止：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service</span> <span class="string">nginx restart</span></span><br><span class="line"><span class="attr">也可以重启nginx</span></span><br><span class="line"></span><br><span class="line"><span class="attr">kill</span> <span class="string">-QUIT 进程号  </span></span><br><span class="line"><span class="comment">#从容停止</span></span><br><span class="line"></span><br><span class="line"><span class="attr">kill</span> <span class="string">-TERM 进程号</span></span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line"><span class="attr">kill</span> <span class="string">-INT 进程号</span></span><br><span class="line"><span class="comment">#快速停止</span></span><br><span class="line"></span><br><span class="line"><span class="meta">p-kill</span> <span class="string">-9 nginx</span></span><br><span class="line"><span class="attr">强制停止</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nginx</span> <span class="string">-t </span></span><br><span class="line"><span class="comment">#验证配置文件 前提是进入相应的配置的目录（自己实际测试的时候发现没有进入相应的配置目录也是可以的）</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nginx</span> <span class="string">-s reload</span></span><br><span class="line"><span class="comment">#重启</span></span><br><span class="line"></span><br><span class="line"><span class="attr">kill</span> <span class="string">-HUP 进程号</span></span><br><span class="line"><span class="comment">#重启的另外一种方式</span></span><br></pre></td></tr></table></figure>
 
-<p>官方文档地址：<br><a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Using_Firewalls.html#sec-Introduction_to_firewalld" target="_blank" rel="noopener">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Using_Firewalls.html#sec-Introduction_to_firewalld</a></p>
+<p>官方文档地址：<br><a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Using_Firewalls.html#sec-Introduction_to_firewalld">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Using_Firewalls.html#sec-Introduction_to_firewalld</a></p>
 <p>附1:一个简单的负载均衡的实现:<br>weight默认是1，自己也可以更改。</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">upstream mypro &#123;</span><br><span class="line">				ip_hash;</span><br><span class="line">                server <span class="number">111.13</span><span class="number">.100</span><span class="number">.92</span> weight=<span class="number">2</span>;</span><br><span class="line">                server <span class="number">183.232</span><span class="number">.41</span><span class="number">.1</span>;</span><br><span class="line">                server <span class="number">42.156</span><span class="number">.140</span><span class="number">.7</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">        server &#123;</span><br><span class="line">                listen <span class="number">8090</span>;</span><br><span class="line">                location / &#123;</span><br><span class="line">                proxy_pass http:<span class="comment">//mypro;</span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
@@ -296,15 +296,6 @@
     </ul>
     
     <p>
-        <span>/</span>
-        
-        <span><a href="https://www.10000h.top">10000H</a></span>
-        <span>/</span>
-        
-        <span><a href="https://niexiaotao.com">Xiaotao&#39;s Page</a></span>
-        <span>/</span>
-        
-        <span><a href="#">It helps SEO</a></span>
         <span>/</span>
         
     </p>

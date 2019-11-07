@@ -35,7 +35,7 @@
 </div>
 
 <div class="index-about">
-    <i> Love life, Love front end </i>
+    <i> Love life, Love code </i>
 </div>
 
 <div class="index-container">
@@ -109,7 +109,7 @@
 </div>
 
         <div class="index-about-mobile">
-            <i> Love life, Love front end </i>
+            <i> Love life, Love code </i>
         </div>
     </div>
     
@@ -145,7 +145,7 @@
 <p>在 react 开源之初，相关生态体系并不完善，甚至官方还在用<code>Backbone.Router</code>加 react 来开发单页面应用。</p>
 <p>但是那个时候的 react，和现在的 react，解决的核心问题都没有变化，那就是<strong>复杂的UI渲染问题（ complex UI rendering ）</strong>，所有的它的组件化，虚拟 DOM 和 diff 算法，甚至目前提出的 Fiber、async rendering等等，都是围绕这个中心。</p>
 <h3 id="FLUX"><a href="#FLUX" class="headerlink" title="FLUX"></a>FLUX</h3><p>在 2014 年五月左右，也就是距离 react 开源接近一年时间，react 公开了 FLUX 架构。当然，我们现在在学习的过程中，甚至都很难听到 FLUX 这个词汇了，更多的则是 redux 甚至 dva 等更上层的框架，但是目前绝大多数 react 相关的数据管理框架都受到了 FLUX 很大启发。</p>
-<p>FLUX 和双向数据绑定的关系，我认为这里有必要援引当初官方写的一点解释（更详细的一些信息，可以看<a href="https://www.10000h.top/react_flux.pdf" target="_blank" rel="noopener">这篇文章</a>）：</p>
+<p>FLUX 和双向数据绑定的关系，我认为这里有必要援引当初官方写的一点解释（更详细的一些信息，可以看<a href="https://www.10000h.top/react_flux.pdf">这篇文章</a>）：</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">To summarize, Flux works well <span class="keyword">for</span> us because <span class="keyword">the</span> single directional data flow makes <span class="keyword">it</span> easy <span class="built_in">to</span> understand <span class="keyword">and</span> modify <span class="keyword">an</span> application <span class="keyword">as</span> <span class="keyword">it</span> becomes more complicated. We found that <span class="literal">two</span>-way data bindings lead <span class="built_in">to</span> cascading updates, where changing <span class="literal">one</span> data model led <span class="built_in">to</span> another data model updating, making <span class="keyword">it</span> very difficult <span class="built_in">to</span> predict what would change <span class="keyword">as</span> <span class="keyword">the</span> <span class="built_in">result</span> <span class="keyword">of</span> <span class="keyword">a</span> single user interaction.</span><br><span class="line"></span><br><span class="line">总而言之，Flux对我们来说效果很好，因为单向数据流可以让应用程序变得更加复杂，从而轻松理解和修改应用程序。我们发现双向数据绑定导致级联更新，其中更改一个数据模型导致另一个数据模型更新，使得很难预测单个用户交互的结果会发生什么变化。</span><br></pre></td></tr></table></figure>
 
 <p>从此之后，下面这张图便多次出现在官方博客和各个网站中，相信我们也肯定见过下图：</p>
@@ -171,16 +171,16 @@
 <h3 id="Fiber"><a href="#Fiber" class="headerlink" title="Fiber"></a>Fiber</h3><p>react 团队使用 Fiber 架构完成了 react V16 的开发，得益于 Fiber 架构，react 的性能又得到了显著提升（尤其是在某些要求交互连续的场景下），并且包大小缩小了 32%。</p>
 <p>到目前来说，关于 Fiber 架构的中英文资料都已经相当丰富，笔者在这里就不进行过多的赘述了。</p>
 <h3 id="接下来的展望"><a href="#接下来的展望" class="headerlink" title="接下来的展望"></a>接下来的展望</h3><p>react 团队目前的主要工作集中在 async rendering 方面，这方面的改进可以极大提升用户交互体验（特别是在弱网络环境下），会在 2018 年发布。</p>
-<p>如果你对这方面的内容很感兴趣，不妨看看 react 之前的<a href="https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html" target="_blank" rel="noopener">演讲视频</a></p>
+<p>如果你对这方面的内容很感兴趣，不妨看看 react 之前的<a href="https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html">演讲视频</a></p>
 <h3 id="附录1-一些你可能不知道的变化"><a href="#附录1-一些你可能不知道的变化" class="headerlink" title="附录1 一些你可能不知道的变化"></a>附录1 一些你可能不知道的变化</h3><ul>
-<li>react并非直接将 JSX 渲染成 DOM，而是对某些事件和属性做了封装（优化）。 react 对表单类型的 DOM 进行了优化，比如封装了较为通用的 onChange 回调函数，这其中需要处理不少问题，react 在 V0.4 即拥有了这一特性，可以参考<a href="https://reactjs.org/blog/2013/07/23/community-roundup-5.html#cross-browser-onchange" target="_blank" rel="noopener">这里</a></li>
+<li>react并非直接将 JSX 渲染成 DOM，而是对某些事件和属性做了封装（优化）。 react 对表单类型的 DOM 进行了优化，比如封装了较为通用的 onChange 回调函数，这其中需要处理不少问题，react 在 V0.4 即拥有了这一特性，可以参考<a href="https://reactjs.org/blog/2013/07/23/community-roundup-5.html#cross-browser-onchange">这里</a></li>
 <li>事实上，react 在V0.8之前，一直在以“react-tools”这个名字发布，而 npm 上面叫做 react 的实际上是另外一个包，而到 V0.8 的时候，react 团队和原来的 “react” 包开发者协商，之后 react 便接管了原来的这个包，也因此，react并没有 V0.6 和 V0.7，而是从 V0.5 直接到了 V0.8</li>
 <li>react 从 V0.14 之后，就直接跳跃到了 V15，官方团队给出的理由是，react 很早就已经足够稳定并且可以使用在生产版本中，更改版本的表达方式更有助于表示 react 项目本身的稳定性。</li>
 </ul>
 <h3 id="附录2-一些比较优秀的博客"><a href="#附录2-一些比较优秀的博客" class="headerlink" title="附录2 一些比较优秀的博客"></a>附录2 一些比较优秀的博客</h3><ul>
-<li>关于React Components, Elements, 和 Instances，如果你还有一些疑问，可以看一看React官方团队的文章：<a href="https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html" target="_blank" rel="noopener">React Components, Elements, and Instances</a></li>
-<li>如果你倾向于使用 mixins，不妨看看 react 关于取消 mixin的说法：<a href="https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html" target="_blank" rel="noopener">Mixins Considered Harmful</a></li>
-<li>react props 相关的开发模式的建议，我认为目前在使用 react 的程序员都应该了解一下<a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html" target="_blank" rel="noopener">You Probably Don’t Need Derived State</a></li>
+<li>关于React Components, Elements, 和 Instances，如果你还有一些疑问，可以看一看React官方团队的文章：<a href="https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html">React Components, Elements, and Instances</a></li>
+<li>如果你倾向于使用 mixins，不妨看看 react 关于取消 mixin的说法：<a href="https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html">Mixins Considered Harmful</a></li>
+<li>react props 相关的开发模式的建议，我认为目前在使用 react 的程序员都应该了解一下<a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html">You Probably Don’t Need Derived State</a></li>
 </ul>
 
         
@@ -273,15 +273,6 @@
     </ul>
     
     <p>
-        <span>/</span>
-        
-        <span><a href="https://www.10000h.top">10000H</a></span>
-        <span>/</span>
-        
-        <span><a href="https://niexiaotao.com">Xiaotao&#39;s Page</a></span>
-        <span>/</span>
-        
-        <span><a href="#">It helps SEO</a></span>
         <span>/</span>
         
     </p>
