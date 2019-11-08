@@ -11,7 +11,7 @@
 
     <title>
         
-        防抖节流- - 廖启准的博客 | Qizhun Liao&#39;s Blog
+        js简单封装ajax请求- - 廖启准的博客 | Qizhun Liao&#39;s Blog
         
     </title>
 
@@ -95,7 +95,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#防抖（debounce）"><span class="toc-text">防抖（debounce）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#节流（throttle）"><span class="toc-text">节流（throttle）</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#详细描述"><span class="toc-text">详细描述</span></a></li></ol>
 </div>
     
 </div>
@@ -126,13 +126,16 @@
 
 <div class="post-container">
     <div class="post-title">
-        防抖节流-
+        js简单封装ajax请求-
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-07-09 21:52:54</span></span>
+        <span class="attr">发布于：<span>2019-07-10 12:30:34</span></span>
         
         <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#ajax" title="ajax">ajax</a>
+        <span>/</span>
         
         <a class="tag" href="/tags/#js" title="js">js</a>
         <span>/</span>
@@ -144,14 +147,55 @@
 </span>
     </div>
     <div class="post-content ">
-        <h4 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h4><p>指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间。</p>
-<p>应用：实时搜索</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">handler, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _self = <span class="keyword">this</span>,</span><br><span class="line">            _arg = <span class="built_in">arguments</span>;</span><br><span class="line">        clearTimeout(timer)</span><br><span class="line">        timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            handler.apply(_self, _arg)</span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">&#125;</span><br><span class="line">oInp.onclick = debounce(ajax, <span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h4><p>指连续触发事件但是在 n 秒中只执行一次函数。</p>
-<p>应用：窗口调整（resize），页面滚动（scroll），抢购疯狂点击。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">handler, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> lastTime = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> nowTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</span><br><span class="line">        <span class="keyword">if</span> (nowTime - lastTime &gt; wait) &#123;</span><br><span class="line">            handler.apply(<span class="keyword">this</span>, argumrnts)</span><br><span class="line">            lastTime = nowTime</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">&#125;</span><br><span class="line">oBtn.oncilck = throttle(ajax, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-
-
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showList</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> xhr = <span class="literal">null</span>;</span><br><span class="line">ajaxFunc(<span class="string">'post'</span>, <span class="string">'./data.php'</span>, <span class="string">'username=liao'</span>, <span class="literal">true</span>, showList)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajaxFunc</span>(<span class="params">method, url, data, flag, callback</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 兼容处理</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHttp'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    method = method.toUpperCase();</span><br><span class="line">    xhr.open(method, url, flag); <span class="comment">// method  url 同步异步</span></span><br><span class="line">    <span class="keyword">if</span> (method == <span class="string">'POST'</span>) &#123;</span><br><span class="line">        xhr.setRequestHeader(<span class="string">'Content-type'</span>, <span class="string">'application/x-www-form-urlencoded'</span>); <span class="comment">// post请求必须设置头部</span></span><br><span class="line">    &#125;</span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">                callback(xhr.responseText)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.send(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="详细描述"><a href="#详细描述" class="headerlink" title="详细描述"></a>详细描述</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>XMLHttpRequest</td>
+<td align="left">所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）</td>
+</tr>
+<tr>
+<td>open(method,url,async)</td>
+<td align="left">规定请求类型，url，是否同步异步<br>  1.method：请求的类型，GET 或 POST <br>2.url：文件在服务器上的位置 <br>3.async：true（异步）或 false（同步）</td>
+</tr>
+<tr>
+<td>send(string)</td>
+<td align="left">将请求发送到服务器,string仅用于post请求</td>
+</tr>
+<tr>
+<td>setRequestHeader(header,value)</td>
+<td align="left">向请求添加 HTTP 头。header: 规定头的名称。value: 规定头的值</td>
+</tr>
+<tr>
+<td>onreadystatechange</td>
+<td align="left">状态改变的时间触发器</td>
+</tr>
+<tr>
+<td>readyState</td>
+<td align="left">对象状态（integer），状态值 <br>0 = 未初始化，未调用send()方法<br>1 = 读取中，已调用send()方法，正在发送请求<br>2 = 已读取，send()方法已完成，接受到全部响应内容<br>3 = 交互中，正在解析响应内容<br>4 = 完成，响应内容全部完成</td>
+</tr>
+<tr>
+<td>responseText</td>
+<td align="left">获得字符串形式的响应数据</td>
+</tr>
+<tr>
+<td>responseXMl</td>
+<td align="left">获得XML形式的相应数据</td>
+</tr>
+<tr>
+<td>status</td>
+<td align="left">服务器返回的状态码，如：404 = 文件没找到，200 = 成功，500 = 服务器内部错误，304 = 资源被修改</td>
+</tr>
+<tr>
+<td>statusText</td>
+<td align="left">服务器返回的状态文本信息</td>
+</tr>
+</tbody></table>
 
         
             <div class="donate-container">
