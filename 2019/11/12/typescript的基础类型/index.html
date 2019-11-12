@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="廖启准的博客">
+    <meta name="keyword"  content="web前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        typescript的基础类型 - 廖启准的博客 | Qizhun Liao&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <!-- <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"> -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love life, Love code </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpeg" />
+        </div>
+        <div class="name">
+            <i>Qizhun Liao</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <!-- <i class="iconfont icon-shouye1"></i> -->
+                    <i class="fa fa-home fa-fw"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <!-- <i class="iconfont icon-biaoqian1"></i> -->
+                    <i class="fa fa-thumb-tack fa-fw"></i>
+                    <span>分类</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <!-- <i class="iconfont icon-guidang2"></i> -->
+                    <i class="fa  fa-sign-in fa-fw"></i>
+                    <span>目录</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <!-- <i class="iconfont icon-guanyu2"></i> -->
+                    <i class="fa fa-user fa-fw"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <!-- <i class="iconfont icon-sousuo1"></i> -->
+                    <i class="fa fa-search fa-fw"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一-基础类型"><span class="toc-text">一.基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-字符串"><span class="toc-text">1.字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Boolean"><span class="toc-text">2.Boolean</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-数字"><span class="toc-text">3.数字</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-数组"><span class="toc-text">4.数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-元组"><span class="toc-text">5.元组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-枚举"><span class="toc-text">6.枚举</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-Any-任何类型）"><span class="toc-text">7.Any (任何类型）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-undefined-null"><span class="toc-text">8.undefined  null</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-void"><span class="toc-text">9.void</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-联合类型"><span class="toc-text">二.联合类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-类型推论"><span class="toc-text">三.类型推论</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#四-类型断言"><span class="toc-text">四.类型断言</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="fa fa-mail-reply"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love life, Love code </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        typescript的基础类型
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-11-12 13:51:45</span></span>
+        
+        <span class="attr">分类：/
+        
+        <a class="tag" href="/tags/#typescript" title="typescript">typescript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h4 id="一-基础类型"><a href="#一-基础类型" class="headerlink" title="一.基础类型"></a>一.基础类型</h4><h5 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1.字符串"></a>1.字符串</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name:string = <span class="string">'Xiao Ming'</span></span><br><span class="line"><span class="keyword">let</span> isDesc:string = <span class="string">`<span class="subst">$&#123;name&#125;</span> is a  handsome guy`</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-Boolean"><a href="#2-Boolean" class="headerlink" title="2.Boolean"></a>2.Boolean</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isShow:boolean = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-数字"><a href="#3-数字" class="headerlink" title="3.数字"></a>3.数字</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age:number = <span class="number">18</span></span><br></pre></td></tr></table></figure>
+<h5 id="4-数组"><a href="#4-数组" class="headerlink" title="4.数组"></a>4.数组</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr:number[] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="comment">// Array&lt;T&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="5-元组"><a href="#5-元组" class="headerlink" title="5.元组"></a>5.元组</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr:[number,string] = [<span class="number">18</span>,<span class="string">'Xiao Ming'</span>]</span><br></pre></td></tr></table></figure>
+<h5 id="6-枚举"><a href="#6-枚举" class="headerlink" title="6.枚举"></a>6.枚举</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">enum Weeks = &#123; <span class="string">'Mon'</span>,<span class="string">'Tue'</span>,<span class="string">'Wed'</span> &#125;</span><br><span class="line"><span class="keyword">let</span> day:Weeks = Weeks.Mon</span><br><span class="line"><span class="built_in">console</span>.log(day)  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(Weeks[<span class="number">0</span>])  <span class="comment">// 'Mon'</span></span><br><span class="line"><span class="built_in">console</span>.log(Weeks[<span class="string">'Mon'</span>])  <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<h5 id="7-Any-任何类型）"><a href="#7-Any-任何类型）" class="headerlink" title="7.Any (任何类型）"></a>7.Any (任何类型）</h5><h5 id="8-undefined-null"><a href="#8-undefined-null" class="headerlink" title="8.undefined  null"></a>8.undefined  null</h5><h5 id="9-void"><a href="#9-void" class="headerlink" title="9.void"></a>9.void</h5><p>==没有任何类型，当作函数返回值==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>):<span class="title">void</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'hello'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello1</span>(<span class="params"></span>):<span class="title">string</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">'hello'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二-联合类型"><a href="#二-联合类型" class="headerlink" title="二.联合类型"></a>二.联合类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data:string | number | boolean = <span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="三-类型推论"><a href="#三-类型推论" class="headerlink" title="三.类型推论"></a>三.类型推论</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = <span class="number">123</span>  <span class="comment">// number类型</span></span><br><span class="line"><span class="keyword">let</span> data1； <span class="comment">// Any类型</span></span><br></pre></td></tr></table></figure>
+<h5 id="四-类型断言"><a href="#四-类型断言" class="headerlink" title="四.类型断言"></a>四.类型断言</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data:string | number | boolean = <span class="string">'Xiao Ming is a boy'</span></span><br><span class="line"><span class="keyword">let</span> len:number = (<span class="xml"><span class="tag">&lt;<span class="name">string</span>&gt;</span>data).length</span></span><br><span class="line"><span class="xml">let len:number = (data as string).length</span></span><br></pre></td></tr></table></figure>
+
+
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏 <i class="fa fa-thumbs-up"></i></button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/MstZhun">
+                <i class="fa fa-github"></i>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span></span>
+        
+        <span><a href="#">Links</a></span>
+        <span>/</span>
+        
+        <span><a href="https://pipipier.github.io/">pipipier</a></span>
+        <span>/</span>
+        
+        <span><a href="https://github.com/zhengzhuang95/blog">zhengzhuang95</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80NzQzNy8yMzkzNw==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
