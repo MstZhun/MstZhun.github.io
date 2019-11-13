@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="廖启准的博客">
+    <meta name="keyword"  content="web前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        typescript的基础类型 - 廖启准的博客 | Qizhun Liao&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <!-- <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"> -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love life, Love code </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpeg" />
+        </div>
+        <div class="name">
+            <i>Qizhun Liao</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <!-- <i class="iconfont icon-shouye1"></i> -->
+                    <i class="fa fa-home fa-fw"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <!-- <i class="iconfont icon-biaoqian1"></i> -->
+                    <i class="fa fa-thumb-tack fa-fw"></i>
+                    <span>分类</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <!-- <i class="iconfont icon-guidang2"></i> -->
+                    <i class="fa  fa-sign-in fa-fw"></i>
+                    <span>目录</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <!-- <i class="iconfont icon-guanyu2"></i> -->
+                    <i class="fa fa-user fa-fw"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <!-- <i class="iconfont icon-sousuo1"></i> -->
+                    <i class="fa fa-search fa-fw"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#接口"><span class="toc-text">接口</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-对class类的约束"><span class="toc-text">1.对class类的约束</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-对函数的约束"><span class="toc-text">2.对函数的约束</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-对数组的约束"><span class="toc-text">3.对数组的约束</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-对json的约束"><span class="toc-text">4.对json的约束</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="fa fa-mail-reply"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love life, Love code </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        typescript的基础类型
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-11-13 00:00:00</span></span>
+        
+        <span class="attr">分类：/
+        
+        <a class="tag" href="/tags/#typescript" title="typescript">typescript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><h6 id="1-对class类的约束"><a href="#1-对class类的约束" class="headerlink" title="1.对class类的约束"></a>1.对class类的约束</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接口定义</span></span><br><span class="line">interface Iprinter&#123;</span><br><span class="line">	Printing(msg:string):string;</span><br><span class="line">&#125;</span><br><span class="line">interface Imessage&#123;</span><br><span class="line">	getMsg():string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实现接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">colorprinter</span> <span class="title">implements</span> <span class="title">Iprinter</span></span>&#123;</span><br><span class="line">	Printing(msg:string):string&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">'打印'</span> + msg + <span class="string">'成功！'</span></span><br><span class="line">	&#125;</span><br><span class="line">	getMsg():string&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">'hello world'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> colorprinter()</span><br><span class="line"><span class="built_in">console</span>.log(p1.Printing(<span class="string">'简历'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现接口要实现里面的内容</span></span><br><span class="line"><span class="comment">// 定义接口的时候，只定义里面的声明即可，不包含具体内容</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="2-对函数的约束"><a href="#2-对函数的约束" class="headerlink" title="2.对函数的约束"></a>2.对函数的约束</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">interface Comfun&#123;</span><br><span class="line">	(a:string,<span class="attr">b</span>:number):boolean</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fun:Comfun</span><br><span class="line">fun = <span class="function"><span class="keyword">function</span>(<span class="params">a:string,b:number</span>):<span class="title">boolean</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-对数组的约束"><a href="#3-对数组的约束" class="headerlink" title="3.对数组的约束"></a>3.对数组的约束</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">interface Islist&#123;</span><br><span class="line">	[index:number]:string</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr:Islist</span><br><span class="line">arr = [<span class="string">'a'</span>,<span class="string">'b'</span>]</span><br></pre></td></tr></table></figure>
+<h6 id="4-对json的约束"><a href="#4-对json的约束" class="headerlink" title="4.对json的约束"></a>4.对json的约束</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface Isjson&#123;</span><br><span class="line">	name:string,</span><br><span class="line">	readonly age:number, <span class="comment">// 只读属性</span></span><br><span class="line">	email?:string <span class="comment">// 可选属性</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">desc</span>(<span class="params">n:Isjson</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(n))</span><br><span class="line">&#125;</span><br><span class="line">desc(&#123;<span class="attr">name</span>:<span class="string">'Xiao Ming'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏 <i class="fa fa-thumbs-up"></i></button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/MstZhun">
+                <i class="fa fa-github"></i>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span></span>
+        
+        <span><a href="#">Links</a></span>
+        <span>/</span>
+        
+        <span><a href="https://pipipier.github.io/">pipipier</a></span>
+        <span>/</span>
+        
+        <span><a href="https://github.com/zhengzhuang95/blog">zhengzhuang95</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80NzQzNy8yMzkzNw==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
