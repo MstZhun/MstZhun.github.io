@@ -155,16 +155,6 @@
 <h6 id="4-对json的约束"><a href="#4-对json的约束" class="headerlink" title="4.对json的约束"></a>4.对json的约束</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface Isjson&#123;</span><br><span class="line">	name:string,</span><br><span class="line">	readonly age:number, <span class="comment">// 只读属性</span></span><br><span class="line">	email?:string <span class="comment">// 可选属性</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">desc</span>(<span class="params">n:Isjson</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(n))</span><br><span class="line">&#125;</span><br><span class="line">desc(&#123;<span class="attr">name</span>:<span class="string">'Xiao Ming'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;)</span><br></pre></td></tr></table></figure>
 
         
-            <div class="donate-container">
-    <div class="donate-button">
-        <button id="donate-button">赞赏 <i class="fa fa-thumbs-up"></i></button>
-    </div>
-    <div class="donate-img-container hide" id="donate-img-container">
-        <img id="donate-img" src="" data-src="/img/donate.jpg">
-        <p> 感谢鼓励 </p>
-    </div>
-</div>
-        
         <br />
         <div id="comment-container">
         </div>
@@ -234,24 +224,5 @@
 
 
 
-
-    <script type="text/javascript">
-       (function() {
-           if (typeof LivereTower === 'function') { return; }
-
-           var j, d = document.getElementById('lv-container');
-
-           d.setAttribute('data-id','city');
-           d.setAttribute('data-uid' , 'MTAyMC80NzQzNy8yMzkzNw==');
-
-           j = document.createElement('script');
-           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-           j.async = true;
-
-           d.appendChild(j);
-       })();
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-    </div>
 
 </html>
