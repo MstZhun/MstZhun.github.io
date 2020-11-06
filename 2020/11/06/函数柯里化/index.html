@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="廖启准的博客">
+    <meta name="keyword"  content="web前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        函数柯里化 - 廖启准的博客 | Qizhun Liao&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <!-- <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"> -->
+    <script src="https://use.fontawesome.com/eb414ba51e.js"></script>
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love life, Love code </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpeg" />
+        </div>
+        <div class="name">
+            <i>Qizhun Liao</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <!-- <i class="iconfont icon-shouye1"></i> -->
+                    <i class="fa fa-home fa-fw"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <!-- <i class="iconfont icon-biaoqian1"></i> -->
+                    <i class="fa fa-thumb-tack fa-fw"></i>
+                    <span>分类</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <!-- <i class="iconfont icon-guidang2"></i> -->
+                    <i class="fa  fa-sign-in fa-fw"></i>
+                    <span>目录</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <!-- <i class="iconfont icon-guanyu2"></i> -->
+                    <i class="fa fa-user fa-fw"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <!-- <i class="iconfont icon-sousuo1"></i> -->
+                    <i class="fa fa-search fa-fw"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#柯里化定义"><span class="toc-text">柯里化定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数特点"><span class="toc-text">函数特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参数复用，提前返回，延迟执行"><span class="toc-text">参数复用，提前返回，延迟执行</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="fa fa-mail-reply"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love life, Love code </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        函数柯里化
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-11-06 16:34:45</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="柯里化定义"><a href="#柯里化定义" class="headerlink" title="柯里化定义"></a>柯里化定义</h3><pre><code>柯里化（Currying）是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。</code></pre><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><pre><code>1.参数复用 – 复用最初函数的第一个参数
+2.提前返回 – 返回接受余下的参数且返回结果的新函数
+3.延迟执行 – 返回新函数，等待执行（其余拓展：防抖节流）</code></pre><h3 id="函数特点"><a href="#函数特点" class="headerlink" title="函数特点"></a>函数特点</h3><pre><code>1.复用第一个参数
+2.返回新函数
+3.收集剩余参数
+4.返回结果</code></pre><h4 id="参数复用，提前返回，延迟执行"><a href="#参数复用，提前返回，延迟执行" class="headerlink" title="参数复用，提前返回，延迟执行"></a>参数复用，提前返回，延迟执行</h4><p>1.add(1)(2,3,4,5)()   add(1,2)(3,4)(5)()   // 15</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> _arg = [...arguments]  <span class="comment">// Array.prototype.slice.call(arguments)  Array.from(arguments)</span></span><br><span class="line">	<span class="keyword">const</span> inner = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">arguments</span>.length === <span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> _arg.reduce(<span class="function">(<span class="params">pre,cur</span>)=&gt;</span> pre + cur)</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			_arg.push(...arguments)  <span class="comment">//[].push.apply(_args, arguments)</span></span><br><span class="line">			<span class="keyword">return</span> inner</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> inner</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)(<span class="number">5</span>)())  <span class="comment">//15</span></span><br></pre></td></tr></table></figure>
+<p>2.add(1)(2,3,4,5)   add(1,2)(3,4)(5)   // 15</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> _arg = [...arguments]</span><br><span class="line">	<span class="keyword">const</span> inner = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		_arg.push(...arguments)</span><br><span class="line">		<span class="keyword">return</span> inner</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 重写toString()，先调用的toString返回值了，valueOf不行</span></span><br><span class="line">	<span class="comment">// toString.valueOf 知识点</span></span><br><span class="line">	inner.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> _arg.reduce(<span class="function">(<span class="params">pre,cur</span>) =&gt;</span> pre + cur)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> inner</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>,<span class="number">4</span>)(<span class="number">5</span>)) <span class="comment">//f 15</span></span><br><span class="line"><span class="keyword">typeof</span> add(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>,<span class="number">4</span>)(<span class="number">5</span>)  <span class="comment">//"function"</span></span><br></pre></td></tr></table></figure>
+<p>3.事件监听</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不考虑柯里化，正常如下封装(每次调用函数都会在次判断if else)</span></span><br><span class="line"><span class="keyword">const</span> whichEvent = <span class="function"><span class="keyword">function</span>(<span class="params">element,type,listener,useCapture</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">window</span>.addEventListener)&#123;</span><br><span class="line">		element.addEventListener(type,listener,useCapture)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</span><br><span class="line">		ele.attachEvent(<span class="string">"on"</span> + type, listener)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 柯里化处理(立即执行函数)</span></span><br><span class="line"><span class="keyword">const</span> whichEvent = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">window</span>.addEventListener)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">element,type,listener,useCapture</span>)</span>&#123;</span><br><span class="line">			element.addEventListener(type,functioin(e)&#123;</span><br><span class="line">				listener.call(element,e)</span><br><span class="line">			&#125;,useCapture)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">element,type,handler</span>)</span>&#123;</span><br><span class="line">			element.attachEvent(<span class="string">"on"</span> + type,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">				handler.call(element,e)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<p>4.参数复用例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list_one = [&#123;</span><br><span class="line">	game:<span class="string">'PUBG'</span>,</span><br><span class="line">	type:<span class="string">'射击'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">	game:<span class="string">'LOL'</span>,</span><br><span class="line">	type:<span class="string">'竞技'</span></span><br><span class="line">&#125;]</span><br><span class="line"><span class="keyword">const</span> list_two = [&#123;</span><br><span class="line">	name:<span class="string">'UZI'</span>,</span><br><span class="line">	role:<span class="string">'bot'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">	name:<span class="string">'FAKE'</span>,</span><br><span class="line">	role:<span class="string">'mid'</span></span><br><span class="line">&#125;]</span><br><span class="line"><span class="keyword">const</span> currying = <span class="function"><span class="params">name</span> =&gt;</span> <span class="function"><span class="params">element</span> =&gt;</span> element[name]</span><br><span class="line"><span class="keyword">const</span> game_sel = currying(<span class="string">'game'</span>)</span><br><span class="line"><span class="keyword">const</span> name_sel = currying(<span class="string">'name'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(list_one.map(game_sel)) <span class="comment">// [ 'PUBG', 'LOL' ]</span></span><br><span class="line"><span class="built_in">console</span>.log(list_two.map(name_sel)) <span class="comment">// [ 'UZI', 'FAKE' ]</span></span><br></pre></td></tr></table></figure>
+<p>5.封装一个柯里化函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hi</span>(<span class="params">name,age,school</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">`您好！我是<span class="subst">$&#123;name&#125;</span>,<span class="subst">$&#123;age&#125;</span>岁，毕业于<span class="subst">$&#123;school&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">const</span> len = fn.length  <span class="comment">//形参个数，没有形参则为0，但是arguments.length可能不为0</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">let</span> _arg = [...arguments]</span><br><span class="line">		<span class="keyword">if</span>(_arg.length &gt;= len)&#123;</span><br><span class="line">			<span class="keyword">return</span> fn(..._arg)</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> inner(..._arg,...arguments)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c =  curry(hi)</span><br><span class="line"><span class="built_in">console</span>.log(c(<span class="string">'小明'</span>)(<span class="string">'20'</span>)(<span class="string">'清华'</span>))</span><br></pre></td></tr></table></figure>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/MstZhun">
+                <i class="fa fa-github"></i>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span></span>
+        
+        <span><a href="#">Links</a></span>
+        <span>/</span>
+        
+        <span><a href="https://pipipier.github.io/">pipipier</a></span>
+        <span>/</span>
+        
+        <span><a href="https://github.com/zhengzhuang95/blog">zhengzhuang95</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
