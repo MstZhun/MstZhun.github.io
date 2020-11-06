@@ -1,6 +1,6 @@
 /*varibles*/
 * {
-  font-family: "italic", Helvetica, Arial, "Heiti SC", "Microsoft YaHei";
+  font-family: "Microsoft YaHei", "italic", Helvetica, Arial, "Heiti SC";
 }
 body,
 html {
@@ -1236,4 +1236,7 @@ pre .javascript .function {
 }
 .gitment-comment p {
   text-indent: 0;
+}
+* {
+  font-family: "Microsoft YaHei", "italic", Helvetica, Arial, "Heiti SC" !important;
 }
